@@ -184,18 +184,18 @@ async function startSupergraphUsingDocker(config: DockerConfig) {
     const started = await healtcheckSupergraph(
       `http://localhost:${config.port ?? '4001'}${config.path ?? ''}`,
     );
-    if (started) {
-      return async () => {
-        dockerDebug(
-          `\n***********************\nStopping supergraph...\n***********************\n\n`,
-        );
-        await shutdownSupergraphUsingDocker(config.composeFile);
-      };
-    } else {
-      throw new Error('Supergraph did not start successfully');
-    }
+    // if (started) {
+    //   return async () => {
+    //     dockerDebug(
+    //       `\n***********************\nStopping supergraph...\n***********************\n\n`,
+    //     );
+    //     await shutdownSupergraphUsingDocker(config.composeFile);
+    //   };
+    // } else {
+    //   throw new Error('Supergraph did not start successfully');
+    // }
   } catch (err) {
-    await shutdownSupergraphUsingDocker(config.composeFile);
+    // await shutdownSupergraphUsingDocker(config.composeFile);
     throw err;
   }
 }
