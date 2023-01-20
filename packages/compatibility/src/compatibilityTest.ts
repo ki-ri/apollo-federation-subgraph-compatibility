@@ -39,7 +39,7 @@ export async function compatibilityTest(
   } catch (err) {
     logWithTimestamp(`compatibility tests encountered an error: ${err}`);
   } finally {
-    await stopSupergraph();
+    // await stopSupergraph();
   }
 
   logWithTimestamp('generating results...');
